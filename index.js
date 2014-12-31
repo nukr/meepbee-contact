@@ -1,18 +1,9 @@
-var async = require('async');
 var express = require('express');
-var redis = require('redis');
-var client = require('./connectRedis');
-var utils = require('./utils');
 var bodyParser = require('body-parser');
-//var users = require('./users.json');
-
-//client.flushall();
-
-//users.forEach(function (user) {
-    //utils.userdatatodb(client, user);
-//});
+var client = require('./connectRedis');
 
 var app = express();
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -28,10 +19,13 @@ app.get('/friends/followme/:phone', function (req, res) {
     });
 });
 
+app.get('/friends/:phone/registered', function (req, res) {
+    res.send('hi');
+});
+
 app.post('/users', function (req, res) {
     // store user with contact
-    console.log(req.body);
-    //utils.userdatatodb(client, req.body.user);
+    //utils.userdatatodb(client, user3);
 });
 
 var server = app.listen(3000, function () {
