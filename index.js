@@ -6,6 +6,7 @@ var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(express.static('client/build'))
 
 app.get('/friends/:phone', function (req, res) {
     client.smembers("MB:" + req.params.phone + ":registered", function (err, friends) {
