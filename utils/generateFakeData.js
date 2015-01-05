@@ -1,8 +1,9 @@
 var uuid = require('node-uuid');
 var fs = require('fs');
-var config = require('./config.js');
+var config = require('../config.js');
+var path = require('path');
 
-var ws = fs.createWriteStream('./fakeuser.json', {flags: 'a+', encoding: 'utf8', mode: 0666});
+var ws = fs.createWriteStream(__dirname + '/fakeuser.json', {flags: 'a+', encoding: 'utf8', mode: 0666});
 var arrLength = 2000;
 var step = config.numberOfUser / arrLength;
 

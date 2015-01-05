@@ -1,5 +1,5 @@
 module.exports = {
-    numberOfUser: 100000,
+    numberOfUser: 10000,
     contactLength: 50,
     analyze: {
         blockSize: 10000

@@ -1,14 +1,12 @@
 "use strict";
 
 var fs = require('fs');
-var log = fs.readFileSync('executeTime.log');
-var config = require('./config.js');
-var arr = log.toString().split(',');
+var log = fs.readFileSync(__dirname + '/executeTime.log');
+var config = require('../config.js');
+var arr = log.toString().split('ms');
 
-// 不知怎麼的最後一個數字多了一個 \n
-arr[599999] = arr[599999].replace(/\n/, '');
-
-var block = arr.length / config.analyze.blockSize;
+var block = ~~(arr.length / config.analyze.blockSize);
+console.log('block = ', block);
 
 var arrBlock = [];
 

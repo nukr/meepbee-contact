@@ -1,12 +1,12 @@
 var utils = require('./utils');
 var lazy = require('lazy.js');
-var config = require('./config.js');
+var config = require('../config.js');
 var client = require('./connectRedis');
 
 client.flushall();
 
 var start, end;
-lazy.readFile('./fakeuser.json')
+lazy.readFile(__dirname + '/fakeuser.json')
     .lines()
     .take(config.numberOfUser)
     .each(function (user, index) {
