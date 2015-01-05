@@ -2,12 +2,13 @@
   "name": "meepshop-contact",
   "version": "0.0.1",
   "description": "meepshop-contact",
+  "repository": "https://github.com/nukr/meepbee-contact.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "meepshop"
+    "meepbee"
   ],
   "author": "nukr",
   "license": "MIT",
