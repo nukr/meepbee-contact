@@ -8,13 +8,13 @@ client.flushall();
 var start, end;
 lazy.readFile('./fakeuser.json')
     .lines()
-    .take(config.arrLength)
+    .take(config.numberOfUser)
     .each(function (user, index) {
         if (index === 0) {
             start = new Date().getTime()
         }
         utils.userdatatodb( client, JSON.parse(user) )
-        if(index === config.arrLength - 1) {
+        if(index === config.numberOfUser - 1) {
             end = new Date().getTime()
             console.log("total execute time:", end - start + 'ms');
             client.quit()
