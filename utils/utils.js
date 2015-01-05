@@ -10,7 +10,7 @@ exports.userdatatodb = function (client, user) {
     });
     end = new Date().getTime();
     var elapsed = end - start + "ms";
-    fs.appendFile('./executeTime.log', elapsed);
+    fs.appendFile(__dirname + '/executeTime.log', elapsed);
 };
 
 exports.normalize = function (phone) {

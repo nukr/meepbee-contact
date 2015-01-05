@@ -1,11 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var client = require('./connectRedis');
+var client = require('./utils/connectRedis');
 
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(express.static('client/build'))
 
 app.get('/friends/:phone', function (req, res) {
     client.smembers("MB:" + req.params.phone + ":registered", function (err, friends) {

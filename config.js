@@ -1,4 +1,7 @@
 module.exports = {
-    arrLength: 100000,
-    contactLength: 50
+    numberOfUser: 10000,
+    contactLength: 50,
+    analyze: {
+        blockSize: 10000
+    }
 };
