@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var client = require('./connectRedis');
+var client = require('./utils/connectRedis');
 
 var app = express();
 
