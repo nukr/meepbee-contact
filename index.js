@@ -1,33 +1,20 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var client = require('./utils/connectRedis');
+var morgan = require('morgan');
+var contacts = require('./contacts');
 
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('client/build'))
+app.use(morgan('dev'));
 
-app.get('/friends/:phone', function (req, res) {
-    client.smembers("MB:" + req.params.phone + ":registered", function (err, friends) {
-        res.send(friends);
-    });
-});
+app.get('/friends/:phone', contacts.listAll);
 
-app.get('/friends/followme/:phone', function (req, res) {
-    client.smembers("MB:" + req.params.phone + ":BT", function (err, followme) {
-        res.send(followme);
-    });
-});
+app.get('/followme/:phone', contacts.followMe);
 
-app.get('/friends/:phone/registered', function (req, res) {
-    res.send('hi');
-});
-
-app.post('/users', function (req, res) {
-    // store user with contact
-    //utils.userdatatodb(client, user3);
-});
+app.post('/users', contacts.addUser);
 
 var server = app.listen(3000, function () {
 
