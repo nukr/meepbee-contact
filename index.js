@@ -1,4 +1,5 @@
 var express = require('express');
+var config = require('./config');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var contacts = require('./contacts');
@@ -16,11 +17,11 @@ app.get('/followme/:phone', contacts.followMe);
 
 app.post('/users', contacts.addUser);
 
-var server = app.listen(3000, function () {
+var server = app.listen(config.port, function () {
 
     var host = server.address().address
     var port = server.address().port
 
     console.log('Example app listening at http://%s:%s', host, port);
-})
+});
 
