@@ -5,6 +5,7 @@
   "repository": "https://github.com/nukr/meepbee-contact.git",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jasmine-node test"
   },
   "keywords": [
