@@ -5,7 +5,7 @@
   "repository": "https://github.com/nukr/meepbee-contact.git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node test"
   },
   "keywords": [
     "meepbee"
@@ -22,6 +22,7 @@
     "redis": "^0.12.1"
   },
   "devDependencies": {
+    "frisby": "^0.8.4",
     "gulp": "^3.8.10",
     "jsx-loader": "^0.12.2",
     "node-uuid": "^1.4.2",
